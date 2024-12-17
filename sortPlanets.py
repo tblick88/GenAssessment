@@ -11,7 +11,7 @@ def readFile(url):
             print("Error. Url data is not in a json format.")
             exit()
     else:
-        print(f"Error. Status code: {response.status_code}")
+        print("Error. Status code: {0}".format(response.status_code))
         exit()
     
 
@@ -84,18 +84,18 @@ if __name__ == "__main__":
     # find number of orphan planets (no star)
     numOP = numOrphanPlanets(data)
     if numOP == 1:
-        print(f"There is {numOP} orphan planet.")
+        print("There is {0} orphan planet.".format(numOP))
     else:
-        print(f"There are {numOP} orphan planets.")
+        print("There are {0} orphan planets.".format(numOP))
 
     # find name (planet identifier) of the planet orbiting the hottest star
     hsPlanet = hottestStarPlanet(data)
     if len(hsPlanet) == 0:
         print("There is not enough data to determine which planet is orbiting the hottest star.")
     elif len(hsPlanet) == 1:
-        print(f"{hsPlanet[0]} is orbiting the hottest star.")
+        print("{0} is orbiting the hottest star.".format(hsPlanet[0]))
     else:
-        print(f"{hsPlanet} are orbitting the hottest star.")
+        print("{0} are orbitting the hottest star.".format(hsPlanet))
 
     # timeline of the number of planets discovered per year grouped by size
     timelinePlanets = timeline(data)
@@ -103,4 +103,4 @@ if __name__ == "__main__":
         print("There is not enough data to create a timeline of planet discovery.")
     else:
         for time in timelinePlanets:
-            print(f"In {time.year} we discovered {time.smPlanet} small planets, {time.medPlanet} medium planets, and {time.lgPlanet} large planets.")
+            print("In {0} we discovered {1} small planets, {2} medium planets, and {3} large planets.".format(time.year, time.smPlanet, time.medPlanet, time.lgPlanet))
